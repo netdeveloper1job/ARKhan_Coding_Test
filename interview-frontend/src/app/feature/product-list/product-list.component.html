@@ -1,0 +1,38 @@
+<div class="container mt-4">
+   <div class="d-flex justify-content-between mb-2">
+    <button class="btn btn-outline-primary" (click)="refreshProducts()">
+      <i class="fa fa-refresh me-1"></i> Refresh
+    </button>
+    <button class="btn btn-success" routerLink="/add-product">
+      <i class="fa fa-plus me-1"></i> Add Product
+    </button>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-striped align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>#</th>
+          <th>Product Name</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products$ | async; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.price | currency }}</td>
+          <td>{{ product.description }}</td><td>
+            <button class="btn btn-sm btn-primary me-1" title="Edit" [routerLink]="['/edit-product', product['_id']]">
+              <i class="fa fa-edit"></i>
+            </button>
+            <button class="btn btn-sm btn-danger" title="Delete" (click)="deleteProduct(product['_id'])">
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

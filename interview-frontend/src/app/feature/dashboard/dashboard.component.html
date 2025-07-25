@@ -1,0 +1,95 @@
+<div class="container-fluid">
+ 
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <h2>Dashboard</h2>
+ 
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="d-flex justify-content-between">
+              <div class="contet">
+                <div class="card-title">Total Users</div>
+                <div class="card-number">10</div>
+              </div>
+              <div class="icon-container">
+                <i class="fa fa-user"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="col-md-4">
+          <div class="card">
+            <div class="d-flex justify-content-between">
+              <div class="contet">
+                <div class="card-title">Total Products</div>
+                <div class="card-number">50</div>
+              </div>
+              <div class="icon-container">
+                <i class="fa fa-shopping-bag"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+ 
+        <div class="col-md-4">
+          <div class="card">
+            <div class="d-flex justify-content-between">
+              <div class="contet">
+                <div class="card-title">Total Category</div>
+                <div class="card-number">10</div>
+              </div>
+              <div class="icon-container">
+                <i class="fa fa-box"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="weather-container mt-4">
+            <div class="main-weather">
+              <div class="left">
+                <h2>{{getDayOfWeek(currentWeather?.dt_txt)}}</h2>
+                <div class="temperature">{{currentWeather?.main?.temp}}°</div>
+                <div class="info">
+                  <p>{{currentWeather?.wind?.speed}}km/h city name</p>
+                  <p>💧 {{currentWeather?.main?.humidity}}% &nbsp; 📅 {{currentWeather?.dt_txt | date }}</p>
+                </div>
+              </div>
+              <div class="right">
+             <div class="right">
+            <img src="assets/Artboard 39.svg" alt="icon" width="40">
+          </div>
+              </div>
+            </div>
+ 
+            <div class="weekly-forecast">
+              <div class="day">
+                <p>{{getDayOfWeek(weather[1]?.dt_txt)}}</p>
+                <p>{{weather[1]?.main?.temp}}°</p>
+                <img src="assets/Artboard 31.svg" alt="Thunderstorm" />
+              </div>
+              <div class="day">
+                <p>{{getDayOfWeek(weather[2]?.dt_txt)}}</p>
+                <p>{{weather[2]?.main?.temp}}°</p>
+                <img src="assets/Artboard 12.svg" alt="Rain" />
+              </div>
+              <div class="day">
+                <p>{{getDayOfWeek(weather[3]?.dt_txt)}}</p>
+                <p>{{weather[3]?.main?.temp}}°</p>
+                <img src="assets/Artboard 13.svg" alt="Sunny" />
+              </div>
+              <div class="day">
+                <p>{{getDayOfWeek(weather[4]?.dt_txt)}}</p>
+                <p>{{weather[4]?.main?.temp}}°</p>
+                <img src="assets/Artboard 12.svg" alt="Cloudy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+</div>

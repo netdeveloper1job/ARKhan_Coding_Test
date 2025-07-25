@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" [routerLink]="'/'">
+      MyApp
+    </a>
+
+    <!-- Toggler (for mobile view) -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- Left-aligned Links -->
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/dashboard'">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/product-list'">Products</a>
+        </li>
+      </ul>
+
+      <!-- Right-aligned Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item" role="button" *ngIf="!(isAuthenticated$ | async)">
+          <a class="nav-link" [routerLink]="'/login'">Login</a>
+        </li>
+        <li class="nav-item" role="button" *ngIf="!(isAuthenticated$ | async)">
+          <a class="nav-link" [routerLink]="'/register'">Register</a>
+        </li>
+        <li class="nav-item" role="button" *ngIf="isAuthenticated$ | async">
+          <a class="nav-link" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
